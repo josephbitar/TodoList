@@ -1,0 +1,17 @@
+// your-form.component.scss
+::ng-deep .mat-calendar {
+    background-color: #fff; // Set background color
+    border: 1px solid #ccc; // Add border
+  }
+  
+  ::ng-deep .mat-calendar-table {
+    width: 100%; // Ensure the table takes up 100% width
+  }
+  
+  ::ng-deep .mat-calendar-body-cell-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; // Ensure content takes up full height
+  }
+  

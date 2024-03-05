@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <h3>Todo List</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Location</th>
+                <th scope="col">Event Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let todo of events">
+                <tr *ngIf="!todo.done">
+                    <td>{{ todo.title }}</td>
+                    <td>{{ todo.location }}</td>
+                    <td>{{ todo.eventDate }}</td>
+                    <td>
+                        <button (click)="markAsDone(todo.id)" *ngIf="!todo.done"
+                            class="btn btn-success btn-sm cols-xs-6">Done</button> |
+                        <button (click)="deleteTodo(todo.id)"
+                            class="btn btn-danger btn-sm ml-2 cols-xs-6">Delete</button>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

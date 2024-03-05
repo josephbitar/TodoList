@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+    <form #newEventForm="ngForm">
+        <div class="col-xs-12">
+            <label for="title">Name</label>
+            <input class="form-control" name="title" id="title" type="text" ngModel required/>
+        </div>
+        <div class="mt-4 col-xs-12">
+            <label for="eventDate">Date</label> <br/>
+            <app-datepicker [name]="eventDateName" [id]="eventDateName" [isRequired]="true"></app-datepicker>
+        </div>
+        <div class="mt-4 col-xs-12">
+            <label for="location">Location</label>
+            <input class="form-control" id="location" name="location" type="text" ngModel/>
+        </div>
+        <div class="mt-4 col-xs-12">
+            <label for="desc">Description</label>
+            <textarea class="form-control" rows="3" id="desc" name="desc" ngModel></textarea>
+        </div>
+        <div class="mt-4 col-xs-12">
+            <label for="attach">Attach</label>
+            <app-file-upload [id]="attachName" [name]="attachName" [isRequired]="false" (filesSelectedEmitter)="handleFilesSelected($event)"></app-file-upload>
+        </div>
+        <div class="mt-4 col-xs-12">
+            <button class="btn btn-primary" type="submit" (click) = "onSubmit(newEventForm)">Create</button>
+        </div>
+    </form>
+        <!-- alternative only in Angular 17 -->
+        <!-- @if (eventCreated) {
+            <p>This item {{eventName}} was added to todo list</p>
+        } @else {
+            <p>No item was created!</p>
+        } -->
+    </div>
+</div>

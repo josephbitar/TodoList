@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+                <div class="mt-4 form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" name="email" id="email" class="form-control" required ngModel minlength="4"/>
+                </div>
+                <div class="mt-4 form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" required ngModel minlength="1"/>
+                </div>
+                <div *ngIf="isSingUpConfirmation">
+                    <label for="code">Confirmation Code</label>
+                    <input type="text" name="code" id="code" class="form-control" ngModel/>
+                </div>
+                <div>
+                    <button *ngIf="!isSingUpConfirmation" class="btn btn-primary" type="submit" (clicl)="onSubmit(authForm)">{{ isLoginMode ? 'Login' : 'Sing Up' }}</button> |
+                    <button *ngIf="!isSingUpConfirmation" class="btn btn-primary" (click)="onSwitchMode()"> {{!isLoginMode ? 'Switch to Login' : 'Switch to Sing Up mode'}}</button>
+                    <button *ngIf="isSingUpConfirmation" class="btn btn-primary" (click)="onSubmit(authForm)"> Confirm Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
